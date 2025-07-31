@@ -30,6 +30,8 @@ export const store = mutation({
     return await ctx.db.insert("users", {
       name: identity.name ?? "Anonymous",
       tokenIdentifier: identity.tokenIdentifier,
+      plan: "free", // Default new users to free plan
+      projectsUsed: 0, // Initialize project counter
     });
   },
 });

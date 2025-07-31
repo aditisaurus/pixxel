@@ -13,14 +13,14 @@ export default defineSchema({
 
     // Usage tracking for plan limits
     projectsUsed: v.number(), // Current project count
-    exportsThisMonth: v.number(), // Monthly export limit tracking
+    exportsThisMonth: v.optional(v.number()), // Monthly export limit tracking
   })
     .index("by_token", ["tokenIdentifier"]) // Primary auth lookup
     .index("by_email", ["email"]) // Email lookups
     .searchIndex("search_name", { searchField: "name" }) // User search
     .searchIndex("search_email", { searchField: "email" }),
 
-     // Main projects table - stores editing sessions
+  // Main projects table - stores editing sessions
   projects: defineTable({
     // Basic project info
     title: v.string(),
@@ -52,5 +52,4 @@ export default defineSchema({
     .index("by_user", ["userId"]) // Get user's projects
     .index("by_user_updated", ["userId", "updatedAt"]) // Recent projects
     .index("by_folder", ["folderId"]), // Projects in folder
-
 });

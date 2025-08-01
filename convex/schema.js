@@ -9,10 +9,10 @@ export default defineSchema({
     imageUrl: v.optional(v.string()),
 
     // Subscription plan (managed by Clerk billing)
-    plan: v.union(v.literal("free"), v.literal("pro")),
+    plan: v.optional(v.union(v.literal("free"), v.literal("pro"))),
 
     // Usage tracking for plan limits
-    projectsUsed: v.number(), // Current project count
+    projectsUsed: v.optional(v.number()), // Current project count
     exportsThisMonth: v.optional(v.number()), // Monthly export limit tracking
   })
     .index("by_token", ["tokenIdentifier"]) // Primary auth lookup

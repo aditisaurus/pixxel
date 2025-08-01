@@ -21,6 +21,7 @@ import { usePlanAccess } from "@/hooks/use-plan-access";
 import { api } from "@/convex/_generated/api";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
+import { UpgradeModal } from "@/components/upgrade-modal";
 
 export function NewProjectModal({ isOpen, onClose }) {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -275,12 +276,12 @@ export function NewProjectModal({ isOpen, onClose }) {
       </Dialog>
 
       {/* Upgrade Modal */}
-      {/* <UpgradeModal
+      <UpgradeModal
         isOpen={showUpgradeModal}
         onClose={() => setShowUpgradeModal(false)}
         restrictedTool="projects"
         reason="Free plan is limited to 3 projects. Upgrade to Pro for unlimited projects and access to all AI editing tools."
-      /> */}
+      />
     </>
   );
 }

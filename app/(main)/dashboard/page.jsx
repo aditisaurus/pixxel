@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { useConvexQuery } from "@/hooks/use-convex-query";
 import { api } from "@/convex/_generated/api";
 import { NewProjectModal } from "./_components/new-project-modal";
-// import { ProjectGrid } from "./_components/project-grid";
+import { ProjectGrid } from "./_components/project-grid";
 
 export default function DashboardPage() {
   const [showNewProjectModal, setShowNewProjectModal] = useState(false);
@@ -42,7 +42,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Projects Content */}
-        {/* {isLoading ? (
+        {isLoading ? (
           <div className="flex items-center justify-center py-20">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-cyan-400"></div>
           </div>
@@ -50,7 +50,7 @@ export default function DashboardPage() {
           <ProjectGrid projects={projects} />
         ) : (
           <EmptyState onCreateProject={() => setShowNewProjectModal(true)} />
-        )} */}
+        )}
 
         {/* New Project Modal */}
         <NewProjectModal
